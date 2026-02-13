@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug C++ (app)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/app",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "C++ build (all cpp in folder)"
+    }
+  ]
+}
