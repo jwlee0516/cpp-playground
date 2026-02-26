@@ -152,6 +152,137 @@ void reset_data(const std::vector<T> &, int *, int *, int *);
  * values.
  * @returns void
  */
+template <typename T>
+void ask_data(const std::vector<T> &table, int *answer, int *old_answer,
+                int *memory_count) {
+    (*old_answer) = (*answer);
+    print_table(table);
+
+    std::cout << "\n\nType your response here (number index):\n";
+    std::cin >> (*answer);
+
+    if(!is_number((*answer))) {
+        std::cout << "\nYou must enter a valid number.\n\n";
+        reset_data(table, answer, old_answer, memory_count);
+    }
+
+    // Increase the memory count, which will be later on used for checking if
+    // the user has already answered two values.
+    (*memory_count)++
+
+    if(((*answer) > table.size()) || ((*answer) < 1)) {
+         std::cout << "\nYou can't check a value that doesn't exist (or an "
+                     "invalid number).\n\n";
+        reset_data(table, answer, old_answer, memory_count);
+    }
+
+    if((*old_answer) == (*answer)){
+        std::cout << "\nYou can't check the same value twice.\n\n";
+        reset_data(table, answer, old_answer, memory_count);
+    }
+
+    // If two matches are answered already, but the user checkes a non-answered
+    // and an answered value, the program will mark it as no match, however, we
+    // must not allow the user to check the same value twice.
+    if((table[(*answer) - 1] != 0) &&
+        ((table[(*old_answer)] == 0) || (table[(*old_answer)] != 0))) {
+            std::cout << "\nYou can't check the same value twice.\n\n";
+            reset_data(table, answer, old_answer, memory_count);
+        }
+    }
+
+/**
+ * @brief Utility function that resets the data if the user enters an invalid
+ * value.
+ * @tparam T The type of the table.
+ * @param table The table that will be used to call `ask_data()`.
+ * @param answer The user's answer.
+ * @param old_answer The user's previous answer.
+ * @param memory_count A counter to check if the user has already answered two
+ * values.
+ * @returns void
+ */
+template <typename T>
+void reset_data(const std::vector<T> &table, int *answer, int *old_answer,
+                int memory_count) {
+
+        (*answer) == (*old_answer);
+        (*memory_count)--;
+
+        ask_data(table, answer, old_answer, memory_count);
+
+    }
+/**
+ * @brief Checks if the two values given by the user match.
+ * @tparam T The type of the table.
+ * @param table_empty The table with no values, slowly assigned from `table`
+ * depending on the user's input.
+ * @param table The table with the original values.
+ * @param answer The user's answer.
+ * @param first_time A boolean to check if the user has already answered a
+ * value.
+ * @param old_answer The user's previous answer.
+ * @param memory_count A counter to check if the user has already answered two
+ * values.
+ * @returns true IF the values given by the user match
+ * @returns false if the values given by the user do NOT match
+ */
+template <typename T>
+bool match(const std::vector<T> &table, std::vector<T> *table_empty,
+            const int *answer, bool *first_time, int *old_answer,
+            int *memory_count) {
+            if((*first_time) == true){
+                return true;
+            }
+
+            // Search across the whole table and if the two values match, keep results,
+            // otherwise, hide 'em up.
+            for(int i = 0; i < table.size() + 1; i++){
+                if (i == answer){
+                    if(table[i - 1] == table[(*old_answer) - 1]) {
+                        (*first_time) = true;
+                        (*memory_count) = 0;
+
+                        (*old_answer) = 0;
+                        return true;
+                    } else {
+                        std::cout << "\nNo match (value was " << table[i - 1]
+                        << ", index is " << i << ").\n\n";
+
+                        (*table_empty)[(*old_answer) - 1] = 0;
+                        (*table_empty)[answer - 1] = 0;
+
+                        (*first_time) = true;
+                        (*memory_count) = 0;
+
+                        (*old_answer) = 0;
+                        return false;
+
+                    }
+                }
+            }
+            
+            return false;   
+    }
+/**
+ * @brief Function to assign the results to the table.
+ *
+ * Also checkes if the user has answered all the values already, as well as
+ * verify if the user made a match or not.
+ * @tparam T The type of the tables.
+ * @param table_empty The table with no values, slowly assigned from `table`
+ * depending on the user's input.
+ * @param table The table with the original values.
+ * @param answer The user's answer.
+ * @param first_time A boolean to check if the user has already answered a
+ * value.
+ * @param old_answer The user's previous answer.
+ * @param memory_count A counter to check if the user has already answered two
+ * values.
+ * @returns void
+ */
+
+
 
 }
 
