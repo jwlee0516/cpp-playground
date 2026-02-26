@@ -281,9 +281,126 @@ bool match(const std::vector<T> &table, std::vector<T> *table_empty,
  * values.
  * @returns void
  */
+template <typename T>
+void assign_results(std::vector<T> *table_empty, std::vector<T> *table,
+                    int *answer, bool *first_time, int *old_answer,
+                    int *memory_count) {
+    // Search through the entire table and if the answer matches the index, show
+    // the value. If it doesn't match, hide both the values. Don't forget to
+    // keep older values already answered.
+    for (int i = 0; i < (*table).size() + 1; i++) {
+        if (i == (*answer)) {
+            if (match((*table), table_empty, (*answer), first_time, old_answer,
+                      memory_count) == true) {
+                (*table_empty)[i - 1] = (*table)[i - 1];
+                (*first_time) = true;
+            }
+        }
+    }
 
+    char try_again = 'n';
 
+    // Has the user finished the game? Use a `for` loop, and if the table is
+    // full, ask the user if he wants to play again.
+    for (int i = 0; i < (*table).size() + 1; i++) {
+        if ((*table_empty)[i] == 0) {
+            break;
+        } else if (i == (*table).size() - 1) {
+            print_table((*table));
+
+            std::cout << "\n\nYou won. Congratulations! Do you want to play "
+                         "again? (y/n)\n";
+            std::cout
+                << "Size " << (*table).size()
+                << " will be used. This can be changed by re-running the game.";
+            std::cin >> try_again;
+            if (try_again == 'y') {
+                // This is needed when checking if the user has two matches
+                // already.
+                for (int i = 0; i < (*table_empty).size(); i++) {
+                    (*table_empty)[i] = 0;
+                }
+
+                init(table);
+            } else if (try_again == 'n'){
+                std::cout << "\nThanks for playing the game!\n";
+                SLEEP(3);
+
+                exit(0);
+            } else {
+                std::cout << "\nInvalid input (exitting...).\n";
+                SLEEP(3);
+
+                exit(0);
+            }
+        }
+    }
+
+    ask_data((*table_empty), answer, old_answer, memory_count);
+    assign_results(table_empty, table, answer, first_time, old_answer,
+                   memory_count);
 
 }
+} // namespace memory_game
+} // namespace games
 
-}
+/**
+ * @brief Main function
+ * @returns 0 on exit
+ */
+
+ int main() {
+    // Start randomizer. This changes the values every time.
+    std::srand(std::time(nullptr));
+
+    int size = 0;       ///< Size of the table.
+    int selection = 0;  ///< Selection of the size (4x2, 5x2, 7x2).
+
+    int response = 0;    ///< The answer (number index) that the user chose.
+    int old_answer = 0;  ///< Previous answer (number index).
+
+    int memory_count =
+        0;  ///< Counter to check if the user has already answered two values.
+    bool first_time = true;  ///< Whether the user has answered 1 value or not
+                             ///< (previous answered values do not count).
+
+    std::cout << "\tMEMORY GAME\n";
+
+    do {
+        std::cout << "\n1. 4x2 (1)";
+        std::cout << "\n2. 5x2 (2)";
+        std::cout << "\n3. 7x2 (3)\n";
+
+        std::cout << "\nChoose table size: ";
+        std::cin >> selection;
+    } while ((selection < 1 || selection > 3) &&
+            (!games::memory_game::is_number(selection)));
+
+    switch(selection){
+         case 1:
+            size = 8;
+            break;
+        case 2:
+            size = 10;
+            break;
+        case 3:
+            size = 14;
+            break;
+        default:
+            size = 10;
+            break;
+    }
+
+    std::vector<char> table(size);
+    std::vector<char>table_empty(size);
+
+    std::cout << "\n";
+
+    games::memory_game::init(&table);
+    games::memory_game::ask_data(table_empty, &response, &old_answer,
+                                &memory_count);
+    games::memory_game::assign_results(&table_empty, &table, &response,
+                                       &first_time, &old_answer, &memory_count);
+
+    return 0;
+ }
