@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/jwlee0516/Desktop/cpp-playground/basic/cpp-beginner-level/4-Numbers/fibonacciSeries'
+relocations:     []
+...
