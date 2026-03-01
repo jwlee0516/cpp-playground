@@ -1,5 +1,5 @@
 ⁡⁣⁢⁣/*
-Problem 3: 1-D Dynamic Array
+Problem 3: 1-D Dynamic Array (Part 1)
 Write a C++ program that declares and initializes an array dynamically and finds 
 the index of the first occurrence of the second largest element in the array.
 */⁡
