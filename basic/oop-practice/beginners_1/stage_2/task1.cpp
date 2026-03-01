@@ -26,6 +26,7 @@ OutputArray(function you implemented in Task 1 part b) to display the final outp
 */⁡
 
 /*
+Task Description
 This C++ program demonstrates the dynamic input, compression, and output of an integer array.
 
   1.The function 'InputArray' takes a reference to an integer 'size' and dynamically 
