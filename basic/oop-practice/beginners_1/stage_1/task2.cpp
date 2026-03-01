@@ -1,4 +1,4 @@
-⁡⁣/* Problem 2: Pointers (Part 2)
+⁡⁣⁢⁣/* Problem 2: Pointers (Part 2)
 Write a C++ program that creates memory of 1 variable through an integer pointer. 
 Input a number into the created memory and find square, cube and half of the input.
 Make sure to clear the memory at the end and there should be no memory leak.
@@ -11,7 +11,7 @@ Output:
     Square of numbers is: 64
     Cube of numbers is: 512
     Half of numbers is: 4
-*/
+*/⁡
 
 /*
 Task description
