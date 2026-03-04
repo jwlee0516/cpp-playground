@@ -20,10 +20,10 @@ class fraction {
         int getNum() const;
         int getDen() const;
 
-        fraction operator + (const fraction& f) const;
-        fraction operator * (const fraction& f) const;
-        
-        bool operator > (const fraction& f) const;
+        fraction operator+(const fraction& f) const;
+        fraction operator*(const fraction& f) const;
+        bool operator>(const fraction& f) const;
+
         bool isProper() const;
         static int getCount();
         void show() const;
@@ -57,4 +57,53 @@ int fraction::getDen() const {
     return denominator;
 }
 
-fraction fraction::operator+
+fraction fraction::operator+(const fraction& f) const {
+    fraction result;
+    result.numerator = (numerator * f.denominator) + (f.numerator * denominator);
+    result.denominator = denominator * f.denominator;
+
+    int div = 2;
+    while (div <= result.numerator && div <= result.denominator) {
+        if (result.numerator % div == 0 && result.denominator % div == 0) {
+            result.numerator /= div;
+            result.denominator /= div;
+        } else {
+            div++;
+        }
+    }
+    return result;
+}
+
+fraction fraction::operator*(const fraction& f) const {
+    fraction result;
+    result.numerator = numerator * f.numerator;
+    result.denominator = denominator * f.denominator;
+
+    int div = 2;
+    while (div <= result.numerator && div <= result.denominator) {
+        if (result.numerator % div == 0 && result.denominator % div == 0) {
+            result.numerator /= div;
+            result.denominator /= div;
+        } else {
+            div++;
+        }
+    }
+    return result;
+}
+
+bool fraction::operator>(const fraction& f) const {
+    if (denominator == f.denominator) {
+        return numerator > f.numerator;
+    } else {
+        return numerator * f.denominator > f.numerator * denominator;
+    }
+}
+
+bool fraction::isProper() const {
+    return numerator > denominator;
+}
+
+int fraction::getCount() {
+    return fractionsCount;
+}
+
