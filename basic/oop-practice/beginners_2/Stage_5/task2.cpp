@@ -107,3 +107,64 @@ int fraction::getCount() {
     return fractionsCount;
 }
 
+void fraction::show() const {
+    cout << "Reduced Form: " << numerator << "/" << denominator << endl;
+
+    if (isProper()) {
+        cout << "The Fraction Is Proper" << endl;
+    } else {
+        cout << "The Fraction Is Not Proper" << endl;
+    }
+    cout << "Number of Fractions: " << getCount() << endl;
+}
+
+int main() {
+    fractions f1(4, 5), f2(6, 7);
+
+    cout << "Hard-coded using constructor: " << endl;
+    cout << "Fractions are 4/5 + 6/7" << endl;
+
+    fraction f3 = f1 + f2;
+    fraction f4 = f1 * f2;
+    cout << "Addition of fractions: ";
+    f3.show();
+    cout << "Multiplication of fractions: ";
+    f4.show();
+    cout << endl;
+
+    cout << "> Operator: " << endl;
+    cout << "f1: 4/5, f2: 6/7" << endl;
+
+    if (f1 > f2) {
+        cout << "Fraction One > Fraction Two !!" << endl;
+    } else {
+        cout << "Fraction One Not > Fraction Two !!" << endl;
+    }
+
+
+    cout << "Hard-coded using setter function: " << endl;
+    f1.setNum(9);
+    f1.setDen(4);
+    f2.setNum(8);
+    f2.setDen(5);
+    cout << "Fractions are 9/4 + 8/5" << endl;
+
+    fraction f5 = f1 + f2;
+    fraction f6 = f1 * f2;
+    cout << "Addition of fractions: ";
+    f5.show();
+    cout << "Multiplication of fractions: ";
+    f6.show();
+
+    cout << "> Operator: " << endl;
+    cout << "f5: 9/4, f6: 8/5" << endl;
+    if (f5 > f6) {
+        cout << "Fraction Five > Fraction Six !!" << endl;
+    } else {
+        cout << "Fraction Five Not > Fraction Six !!" << endl;
+    }
+
+    return 0;
+
+
+}
