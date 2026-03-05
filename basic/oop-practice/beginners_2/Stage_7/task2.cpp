@@ -109,3 +109,24 @@ Quadratic& Quadratic::operator=(const Quadratic& other) {
     return *this;
 }
 
+int main() {
+    Quadratic q1(1, 2, 3), q2(2, 3, 4), q3, q4;
+
+    q3 = q1 + q2;
+    cout << "q1 + q2 = " << q3 << endl;
+
+    q4 = q1 * 2;
+    cout << "q1 * 2 = " << q4 << endl;
+
+    cout << "Enter values for a, b, c for q3: ";
+    cin >> q3;
+    cout << "q3 = " << q3 << endl;
+
+    if (q1 == q2) {
+        cout << "q1 and q2 are equal" << endl;
+    } else {
+        cout << "q1 and q2 are not equal" << endl;
+    }
+
+    return 0;
+}
