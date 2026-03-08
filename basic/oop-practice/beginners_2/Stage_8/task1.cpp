@@ -47,3 +47,28 @@ class BiggerInt {
         BiggerInt operator--(int);
 };
 
+BiggerInt::BiggerInt() {
+    big_int_ = nullptr;
+    int_length_ = 0;
+}
+
+BiggerInt::BiggerInt(const int* obj, int size) {
+    int_length_ = size;
+    big_int_ = new int[int_length_];
+    for (int i = 0; i < int_length_; i++) {
+        big_int_[i] = obj[i];
+    }
+}
+
+BiggerInt::BiggerInt(const BiggerInt& obj) {
+    int_length_ = obj.int_length_;
+    big_int_ = new int[obj.int_length_];
+    for (int i = 0; i < int_length_; i++) {
+        big_int_[i] = obj.big_int_[i];
+    }
+}
+
+BiggerInt BiggerInt::operator=(const BiggerInt& c) {
+    if (this == &c)
+        return *this;
+}
