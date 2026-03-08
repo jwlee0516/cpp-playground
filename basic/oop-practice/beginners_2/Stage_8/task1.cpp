@@ -23,6 +23,27 @@ the increment and decrement operations.
 using namespace std;
 
 class BiggerInt {
+    private:
+        int* big_int_;
+        int int_length_;
 
-    
-}
+    public:
+        BiggerInt();
+        BiggerInt(const int* obj, int size);
+        BiggerInt(const BiggerInt& obj);
+        BiggerInt operator=(const BiggerInt& c);
+        ~BiggerInt();
+
+        void display();
+        void setBigInt(int*);
+        void setIntLength(int);
+        int* getBigInt();
+        int getIntLength();
+        int& operator[](int);
+
+        BiggerInt operator++();
+        BiggerInt operator++(int);
+        BiggerInt operator--();
+        BiggerInt operator--(int);
+};
+
