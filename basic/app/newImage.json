@@ -36,7 +36,11 @@
         "stacked hardware units",
         "multicolored LED indicators",
         "ventilation panels",
-        "cable connections"
+        "cable connections",
+        "vertical cylindrical bars",
+        "rough surface texture",
+        "paint chipping",
+        "aged corrosion"
       ]
     },
     {
@@ -50,7 +54,11 @@
         "stacked hardware units",
         "multicolored LED indicators",
         "network equipment",
-        "cooling vents"
+        "cooling vents",
+        "vertical cylindrical bars",
+        "rough surface texture",
+        "paint chipping",
+        "aged corrosion"
       ]
     },
     {
@@ -63,47 +71,12 @@
       "visual_features": [
         "blinking status lights",
         "grid-like rack structure",
-        "dense electronic equipment"
-      ]
-    },
-     {
-      "id": "prison_bars",
-      "type": "metal bars",
-      "category": "security structure",
-      "position": "foreground",
-      "material": "rusted steel",
-      "visual_features": [
-        "vertical cylindrical bars",
-        "rough surface texture",
-        "paint chipping",
-        "aged corrosion"
-      ]
-    },
-    {
-      "id": "cell_door",
-      "type": "barred metal door",
-      "category": "architectural element",
-      "position": "right side of frame",
-      "material": "steel",
-      "visual_features": [
+        "dense electronic equipment",
         "door handle",
         "locking mechanism",
         "structural frame around bars"
       ]
-    },
-    {
-      "id": "chain_lock",
-      "type": "chain and lock",
-      "category": "security object",
-      "position": "center of bars",
-      "material": "metal",
-      "visual_features": [
-        "hanging chain",
-        "small padlock",
-        "dark metallic surface"
-      ]
     }
-
   ],
   "composition": {
     "camera_angle": "slightly angled eye level",
@@ -114,7 +87,6 @@
     "focus": "architectural detail, central vanishing point at end of server hallway"
   },
    "color_palette": {
-    "style": "monochrome",
      "dominant_colors": [
       "blue",
       "black",
