@@ -5,7 +5,7 @@
     "architecture": {
       "structure": "metal prison bars forming a cell door down a long symmetrical corridor",
       "layout": "vertical bars with horizontal supports across rows of server racks on both sides",
-      "wall_material": "concrete",
+      "wall_material": "concrete clouds",
       "ceiling": "flat industrial ceiling with ventilation panels",
       "floor": "reflective polished floor",
       "condition": "aged and worn"
@@ -19,7 +19,7 @@
         "strong shadows cast by bars",
         "dramatic contrast",
         "shadow patterns on walls and floor",
-        "reflections on floor",
+        "reflections on celing",
         "glowing colored LED points"
       ]
     }
@@ -79,18 +79,20 @@
     }
   ],
   "composition": {
-    "camera_angle": "slightly angled eye level",
-    "perspective": "linear one-point perspective",
-    "symmetry": "highly symmetrical",
-    "depth": "bars extending into background",
-    "framing": "close-up arc down deep corridor vanishing point",
-    "focus": "architectural detail, central vanishing point at end of server hallway"
+    "camera_angle": "slightly angled perspective 90 degrees",
+    "perspective": "trilinear perspective along row of bars",
+    "symmetry": "highly anti-symmetrical",
+    "depth": "bars extending into outdoors",
+    "framing": "close-up arc  architectural detail down deep corridor",
+     "focus": "highground bars"
   },
    "color_palette": {
      "dominant_colors": [
       "blue",
       "black",
-      "dark gray"
+      "dark gray",
+       "light gray",
+       "white highlights"
     ],
     "accent_colors": [
       "green LED",
@@ -100,13 +102,13 @@
    },
    "atmosphere": {
     "mood": [
-      "oppressive",
-      "confining",
-      "isolated",
-       "technological",
+      "technological",
       "sterile",
       "controlled",
       "futuristic",
+      "oppressive",
+      "confining",
+      "isolated",
       "somber"
     ],
     "symbolism": [
