@@ -71,4 +71,118 @@ BiggerInt::BiggerInt(const BiggerInt& obj) {
 BiggerInt BiggerInt::operator=(const BiggerInt& c) {
     if (this == &c)
         return *this;
+
+    if (big_int_ != nullptr)
+        delete[] big_int_;
+
+    int_length = c.int_length_;
+    big_int_ = new int[int_length_];
+    for (int i = 0; i < int_length_; i++){
+        big_int_[i] = c.big_int_[i];
+    }
+
+    return *this;
+}
+
+BiggerInt::~BiggerInt() {
+    delete[] big_int_;
+}
+
+void BiggerInt::display() {
+    if (int_length == 0)
+        cout << "No value assigned";
+    else {
+        for (int i = 0; i < int_length_; i++) {
+            cout << big_int_[i];
+        }
+        cout << endl;
+    }
+}
+
+void BiggerInt::setBigInt(int* big) {
+    big_int_ = big;
+}
+
+void BiggerInt::setIntLength(int len) {
+    int_length_ = len;
+}
+
+int* BiggerInt::getBigInt() {
+    return big_int_;
+}
+
+int* BiggerInt::getIntLength() {
+    return int_length_;
+}
+
+int& BiggerInt::operator[](int index) {
+    if(index >= int_length_) {
+        cout << "Array index out of bounds, exiting";
+        exit(0);
+    }
+    return big_int_[index];
+}
+
+BiggerInt BiggerInt::operator++() {
+    for (int i = 0; i < int_length_; i++) {
+        ++big_int_[i];
+    }
+    return *this;
+}
+
+BiggerInt BiggerInt::operator++(int) {
+    BiggerInt copy = *this;
+    for (int i = 0; i < int_length_; i++) {
+        big_int_[i]++;
+    }
+    return copy;
+}
+
+BiggerInt BiggerInt::operator--() {
+    for (int i = 0; i < int_length_; i++) {
+        --big_int_[i];
+    }
+    return *this;
+}
+
+BiggerInt BiggerInt::operator--(int) {
+    BiggerInt copy = *this;
+    for (int i = 0; i < int_length_; i++) {
+        big_int_[i]--;
+    }
+    return copy;
+}
+
+int main() {
+    int arr1[5] = {1, 2, 3, 4, 5};
+    int arr2[4] = {6, 7, 8, 9};
+
+    BiggerInt e1(arr1, 5);
+    BiggerInt e2(arr2, 4);
+
+    cout << "Array 1: ";
+    e1.display();
+
+    cout << "Array 2: ";
+    e2.display();
+
+    cout << "Using pre-increment on Array 1: ";
+    (++e1).display();
+
+    cout << "Using post-increment on Array 2: ";
+    (e2++).display();
+
+    cout << "After post-increment, Array 2: ";
+    e2.display();
+
+    cout << "Using pre-decrement on Array 1: ";
+    (--e1).display();
+
+    cout << "Using post-decrement on Array 2: ";
+    (e2--).display();
+
+    cout << "After post-decrement, Array 2: ";
+    e2.display();
+
+    return 0;
 }
