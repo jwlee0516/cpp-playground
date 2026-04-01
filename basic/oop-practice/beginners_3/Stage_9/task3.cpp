@@ -1,0 +1,52 @@
+/*
+
+Create another class employee2 from class EMPLOYEE given below. This new class should add a type 
+double data item called compensation, and also a string type called time to indicate whether the 
+employee is paid hourly, weekly, or monthly, with member functions input and display. 
+For simplicity you can change the manager, scientist, and laborer classes so they are 
+derived from employee2 and employee classes. 
+------------------------------------------------------------------------------------
+This C++ program defines several classes related to employees, including 'Employee', 
+'Employee2', 'manager', 'scientist', and 'laborer'.
+
+The 'Employee' class has two protected attributes 'name' and 'number' and two member functions 
+'getdata' and 'putdata'. 'getdata' is used to display the employee's name and number, while 
+'putdata' is used to set the 'name' and 'number' attributes.
+
+The 'Employee2' class is derived from 'Employee' and has two additional protected attributes 
+'compensation' and 'time'. It also has two member functions, 'input' to set the compensation 
+and time, and 'show' to display these attributes.
+
+The 'manager', 'scientist', and 'laborer' classes are all derived from 'Employee2' and represent 
+different types of employees. Each of these classes has a 'input' function to set the attributes 
+inherited from the base class as well as their own attributes. They also have an 'output' function 
+to display all the attributes including name, number, compensation, and time for the respective 
+employee type.
+
+In the 'main' function, the program creates objects of 'manager', 'scientist', and 
+'laborer' classes, and uses the 'input' function to set their attributes.
+Then it calls the 'output' function for each employee type to display their information.
+
+*/
+
+#include<iostream>
+using namespace std;
+
+class Employee {
+    protected:
+        string name;
+        string number;
+
+    public:
+        void getData() { cout << name << " " << number }
+        void putData(string name, string number) {
+            this->name = name;
+            this->number = number;
+        }
+};
+
+class Employee2 : public Employee {
+    protected:
+        double compensation:
+        
+}
