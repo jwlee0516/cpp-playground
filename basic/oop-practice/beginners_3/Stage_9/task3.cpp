@@ -48,5 +48,8 @@ class Employee {
 class Employee2 : public Employee {
     protected:
         double compensation:
-        
+        string time;
+
+    public:
+        void input()
 }
