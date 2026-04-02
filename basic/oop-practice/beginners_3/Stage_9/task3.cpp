@@ -51,5 +51,74 @@ class Employee2 : public Employee {
         string time;
 
     public:
-        void input()
+        void input(double comp, string time) {
+            this->compensation = comp;
+            this->time = time;
+        }
+        void show() {
+            cout << compensation << " " << time;
+        }
+};
+
+class Manager : public Employee2 {
+    public:
+        void input(string name, string num, double comp, string time) {
+            this->name = name;
+            this->number = num;
+            this->compensation = comp;
+            this->time = time;
+        }
+        void output() {
+            cout<<name;endl(cout);
+            cout<<number;endl(cout);
+            cout<<compensation;endl(cout);
+            cout<<time;endl(cout);
+        }
+};
+
+class Scientist : public Employee2 {
+    public:
+        void input(string name,string num,double compens,string time) {
+        this->name=name;
+        this->number=num;
+        this->compensation=compens;
+        this->time=time;
+    }
+    void output(){
+        cout<<name;endl(cout);
+        cout<<number;endl(cout);
+        cout<<compensation;endl(cout);
+        cout<<time;endl(cout);
+    }
+};
+
+class Laborer : public Employee2 {
+    public:
+        void input(string name,string num,double compens,string time){
+        this->name=name;
+        this->number=num;
+        this->compensation=compens;
+        this->time=time;
+    }
+    void output(){
+        cout<<name;endl(cout);
+        cout<<number;endl(cout);
+        cout<<compensation;endl(cout);
+        cout<<time;endl(cout);
+    }
+};
+
+int main() {
+    Manager m1;
+    m1.input("Abdullah","03362504929",10,"29-04-2022");
+    m1.output();endl(cout);
+    Scientist s1;
+    s1.input("Abdullah","03362504929",10,"29-04-2022");
+    s1.output();endl(cout);
+    Laborer l1;
+     l1.input("Abdullah","03362504929",10,"29-04-2022");
+    l1.output();
+
+return 0;
+
 }
