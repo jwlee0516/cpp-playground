@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+void zeroItOut(int& n) 
+{
+    n++;
+}
+
+int main()
+{
+    int n = 3;
+    zeroItOut(n);
+
+    // This prints 4. The ++ operator in zeroItOut() increments n back in main(),
+    // since zeroItOut()'s copy of n is tied directly to this one.
+    cout << n << endl;
+    return 0;
+}
+
+/*
+
+main()
++----------------+
+|  n             |
+|  +-------+     |
+|  |   4   |     |
+|  +-------+     |
++------↑---------+
+       |
+zeroItOut()  |
++------|---------+
+|  n   |         |
+|  +---|---+     |
+|  |   🌀  |     |
+|  +-------+     |
++----------------+
+
+
+1. They help us get around the fact that functions in C++ only return 
+    a single value. If we want to write a function that produces more than 
+    one value that we're interested in capturing, references help us do that.
+
+2. They can be used to save time and space when working with large amounts of data. 
+    For example, if we have a string that contains 1 GB of text, passing it to a function 
+    by value causes us to use another GB of memory to create a separate copy of it, and 
+    it takes time to copy that GB of text from one variable to another. In contrast, 
+    if we pass the string by reference, we use a tiny amount of memory (typically just 64 bits!) 
+    to establish the tether between that reference variable and the original variable being 
+    referenced. Because we use so little memory, the transaction involved is very fast, too.
+
+*/
