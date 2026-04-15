@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int treasurehunt(int& h1, int& h2, int& h3)
+{
+    int myTreasure = 0;
+
+    myTreasure += h1;
+    h1 = 0;
+
+    myTreasure += h2;
+    h2 = 0;
+
+    myTreasure += h3;
+    h3 = 0;
+
+    return myTreasure;
+}
+
+int main()
+{
+    int hoard1 = 350;
+    int hoard2 = 43;
+    int hoard3 = 5003;
+
+    int totalBooty = treasurehunt(hoard1, hoard2, hoard3);
+
+    cout << "Total booty: " << totalBooty << endl << endl;
+
+    cout << "hoard1: " << hoard1 << endl;
+    cout << "hoard2: " << hoard2 << endl;
+    cout << "hoard3: " << hoard3 << endl;
+
+    return 0;
+
+}
