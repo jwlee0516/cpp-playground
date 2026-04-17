@@ -28,15 +28,24 @@ int main()
     }
 
     string password = "p4ssw0rd";
+    // uninitialized string variables in C++ : get auto-initialized to an empty string ""
     string alphaPortion;
 
     for (int i = 0; i < password.length(); i++)
     {
+        // checks whether password[i] is a lowercase char
         if(password[i] >= 'a' && password[i] <= 'z')
             alphaPortion += password[i];
     }
 
     cout << alphaPortion;
+
+     for (int i = 0; i < password.length(); i++)
+    {
+        // checks whether password[i] is a lowercase char
+        if(isalpha(password[i]))
+            alphaPortion += password[i];
+    }
 
     return 0;
 
