@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+void mystery(int& b, int c, int& a)
+{
+   a++;
+   b--;
+   c += a;
+}
+
+int main()
+{
+   int a = 5;
+   int b = 2;
+   int c = 8;
+
+   mystery(c, a, b);
+   cout << a << " " << b << " " << c << endl;
+
+   return 0;
+}
+
+/*
+
+Write a function that takes a string as its only parameter and returns 
+the sum of all the ASCII values of the characters in that string. 
+For example, asciiSum("cat") should return 'c' + 'a' + 't' 
+= 99 + 97 + 116 = 312. As part of this exercise, 
+come up with the full function signature for asciiSum().
+
+*/
