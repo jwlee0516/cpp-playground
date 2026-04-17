@@ -2,9 +2,7 @@
 #include "console.h"
 #include "strlib.h"
 using namespace std;
-
 /*
-
 several flaws that make it difficult to read and, 
 therefore, difficult to debug, augment, and maintain.
 
