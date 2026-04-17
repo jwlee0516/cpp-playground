@@ -4,9 +4,21 @@ using namespace std;
 int main()
 {
     string s = "cupcakes";
-
     // Start at index 3 in the string and pull out the first 4 characters there.
     cout << s.substr(3, 4) << endl;
 
+    string b = "bake";
+    cout << b << endl;
+
+    b[0] = 'c'; // This changes the character at index 0. 
+    cout << b << endl;
+    
+    b += 's'; // We can concatenate a single character to a string using the + operator.
+    cout << b << endl; 
+
+    b = "cup" + b;
+    cout << b << endl;
+    
     return 0;
+
 }
