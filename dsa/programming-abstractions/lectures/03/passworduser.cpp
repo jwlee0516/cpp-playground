@@ -3,6 +3,7 @@
 #include "strlib.h"
 using namespace std;
 
+// Warning: This code suffers from several major design issues.
 int main()
 {
     string s = "Sean";
