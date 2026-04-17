@@ -1,0 +1,31 @@
+#include <cctype>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string s1 = "yellow";
+    string s2 = "$assy";
+
+    // Should print "yes" because s1[0] ('y') is an alphabetic character.
+    if (isalpha(s1[0]))
+    {
+        cout << "yes" << endl;
+    }
+    else 
+    {
+        cout << "no" << endl;
+    }
+
+    // Should print "no" because s2[0] ('$') is not an alphabetic character.
+    if (isalpha(s2[0]))
+    {
+        cout << "yes" << endl;
+    }
+    else 
+    {
+        cout << "no" << endl;
+    }
+
+    return 0;
+}
