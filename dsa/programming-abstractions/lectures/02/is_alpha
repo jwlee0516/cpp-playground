@@ -27,5 +27,18 @@ int main()
         cout << "no" << endl;
     }
 
+    string password = "p4ssw0rd";
+    string alphaPortion;
+
+    for (int i = 0; i < password.length(); i++)
+    {
+        if(password[i] >= 'a' && password[i] <= 'z')
+            alphaPortion += password[i];
+    }
+
+    cout << alphaPortion;
+
     return 0;
+
+
 }
