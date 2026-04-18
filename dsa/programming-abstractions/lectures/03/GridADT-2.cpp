@@ -69,3 +69,15 @@ int main()
 
     return 0;
 }
+
+/*
+
+Q: why would we pass the vector by reference if we have no intention of modifying it in the printVector() function? 
+
+A: We often pass containers to functions by reference simply to save time and space (i.e., memory). 
+If we pass a HUGE vector to a function by value, our function has to create a whole separate copy of that 
+vector's contents, which takes time in addition to using up extra memory (since we'll have a second copy of 
+the vector hanging around in memory). Passing by reference is a smaller, faster transaction 
+and is sometimes done simply for the sake of efficiency.
+
+*/
