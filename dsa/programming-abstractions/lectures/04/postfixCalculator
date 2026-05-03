@@ -1,0 +1,64 @@
+Stack Application: Postfix Notation
+
+Here's an additional stack application for your consideration:
+
+When we (as humans) process an arithmetic expression such as "3 + 5 * 2 - 12 / (2 * 3)," we have to respect order of operations, which means that we bounce around to different parts of the expression and potentially make multiple passes through the whole expression as we work to resolve its value.
+
+The arithmetic expression above is presented in what we call "infix notation." The arithmetic operators (+, -, *, /) come in between their operands (the numbers upon which they're operating). An alternative form of that expression using "postfix notation" (also sometimes called Reverse Polish Notation), is as follows:
+
+Original expression (using infix notation):   3 + 5 * 2 - 12 / (2 * 3)
+Equivalent expression (using postfix notation):   3    5    2    *    +    12     2    3    *    /    -
+With postfix expressions, the given operator comes after the operands to which it applies. We can actually process a postfix expression quite easily from left to right, token-by-token, using a stack -- without having to make multiple passes through the expression! The ease of left-to-right processing makes postfix a great representational choice for expressions that are being parsed by a program (like a calculator application).
+
+The stack-based algorithm for processing them is as follows:
+
+⚠️ Warning! The following algorithm assumes a valid, well-formed postfix expression as its input. There are some gotchas to consider if the postfix expression is not well-formed. (See Exercise #4 in today's exam prep section.)
+
+Let s be an initially empty stack.
+For each token (tok) in your postfix expression:
+If tok is a numeric value:
+Push tok onto s.
+If tok is an operator (+, -, *, /):
+Let rightHandOperand = s.pop().
+Let leftHandOperand = s.pop().
+Apply the given operator (tok) to the leftHandOperand and rightHandOperand and push the resulting value onto s.
+Note that the first value we pop above must be the right-hand operand, and the second must be the left-hand operand. This makes no difference with addition and multiplication, but it matters when performing subtraction and division.
+Return s.pop().
+For example, here's how the algorithm resolves the infix expression above (3  5  2  *  +  12  2  3  *  /  -). Note that we process the tokens in that expression one-by-one, from left to right:
+
+3 is numeric. Push onto stack. Current stack contents (from bottom to top): {3}
+5 is numeric. Push onto stack. Current stack contents (from bottom to top): {3, 5}
+2 is numeric. Push onto stack. Current stack contents (from bottom to top): {3, 5, 2}
+* is operator:
+Pop stack for right-hand operand: 2
+Pop stack for left-hand operand: 5
+Perform operation: 5 * 2 = 10
+Push result (10) onto stack. Current stack contents (from bottom to top): {3, 10}
++ is operator:
+Pop stack for right-hand operand: 10
+Pop stack for left-hand operand: 3
+Perform operation: 3 + 10 = 13
+Push result (13) onto stack. Current stack contents (from bottom to top): {13}
+12 is numeric. Push onto stack. Current stack contents (from bottom to top): {13, 12}
+2 is numeric. Push onto stack. Current stack contents (from bottom to top): {13, 12, 2}
+3 is numeric. Push onto stack. Current stack contents (from bottom to top): {13, 12, 2, 3}
+* is operator:
+Pop stack for right-hand operand: 3
+Pop stack for left-hand operand: 2
+Perform operation: 2 * 3 = 6
+Push result (6) onto stack. Current stack contents (from bottom to top): {13, 12, 6}
+/ is operator:
+Pop stack for right-hand operand: 6
+Pop stack for left-hand operand: 12
+Perform operation: 12 / 6 = 2
+Push result (2) onto stack. Current stack contents (from bottom to top): {13, 2}
+- is operator:
+Pop stack for right-hand operand: 2
+Pop stack for left-hand operand: 13
+Perform operation: 13 - 2 = 11
+Push result (11) onto stack. Current stack contents (from bottom to top): {11}
+End of expression. Return sole element on stack as final result: 11
+Indeed, the original infix expression that correponds to this postfix expression, 3 + 5 * 2 - 12 / (2 * 3), is equal to 11.
+
+You might be wondering where I got the postfix version of that original infix expression. It turns out there's an algorithm for converting infix expressions to postfix expressions that also uses a stack! If you're interested, you can read more about that on GeeksforGeeks: https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/
+
