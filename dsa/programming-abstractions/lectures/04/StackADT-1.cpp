@@ -33,7 +33,8 @@ int main()
         cout << s.pop() << endl;
     }
 
-    
+// -------------------------------------- //
+
     string str = "muffins";
     Stack<char> myStack;
 
@@ -47,8 +48,41 @@ int main()
         cout << myStack.pop();
     }
     cout << endl;
-    
-    
+
+// -------------------------------------- //
+
+    Stack<int> s1;
+    Stack<int> s2;
+    Stack<int> s3;
+
+    s1.push(12);
+    s1.push(10);
+
+    s2.push(12);
+    s2.push(10);
+
+    s3.push(12);
+    s3.push(10);
+    s3.push(10);
+
+    if (s1 == s2)
+    {
+        cout << "s1 == s2" << endl;
+    }
+    else
+    {
+        cout << "s1 != s2" << endl;
+    }
+
+    if (s2 == s3)
+    {
+        cout << "s2 == s3" << endl;
+    }
+    else
+    {
+        cout << "s2 != s3" << endl;
+    }
+
     return 0;
 
 }
