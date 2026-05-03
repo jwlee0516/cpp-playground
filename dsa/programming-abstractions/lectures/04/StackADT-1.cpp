@@ -86,3 +86,21 @@ int main()
     return 0;
 
 }
+
+/*
+
+Stack Applications
+
+Stacks come up all over the place in computer science. Here are a few of the applications we discussed today:
+
+    1. Stacks are useful for reversing things! Print the characters of a string in reverse order.
+
+    2. The call stack, which your programs use to keep track of which functions have been called 
+       in which order and where we need to return to when we hit the end of some function's execution.
+
+    3. When you press the "back" button in a web browser, it's using a stack behind the scenes 
+       to take you back through your browser history for that particular tab!
+
+    4. Stacks can be used to process arithmetic postfix expressions.
+
+*/
