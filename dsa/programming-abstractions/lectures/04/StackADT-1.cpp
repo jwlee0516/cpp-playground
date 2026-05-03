@@ -33,6 +33,22 @@ int main()
         cout << s.pop() << endl;
     }
 
+    
+    string str = "muffins";
+    Stack<char> myStack;
+
+    for (char ch: str)
+    {
+        myStack.push(ch);
+    }
+    
+    while (!myStack.isEmpty())
+    {
+        cout << myStack.pop();
+    }
+    cout << endl;
+    
+    
     return 0;
 
 }
