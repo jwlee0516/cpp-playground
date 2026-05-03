@@ -1,0 +1,19 @@
+Passing Containers by Reference
+
+Pass containers to functions by reference rather than by value, even if 
+we don't want a function to be able to modify the original container. 
+
+WHY?
+because containers can store huge amounts of data, and passing by value creates an 
+entirely new copy of those containers, which takes time (to copy the elements over) 
+as well as extra space in memory.
+
+In contrast, establishing a reference to a container is a 
+super fast operation that only has a tiny bit of memory overhead.
+
+For example, the syntax for passing a vector of integers by reference is as follows:
+
+void printVector(Vector<int>& v)
+{
+   ...
+}
