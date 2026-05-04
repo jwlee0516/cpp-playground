@@ -33,5 +33,19 @@ int main()
     set.add("dragon");
     set.remove("hummingbird");
 
+    set.add("unicorn");
+    set.add("unicorn");
+    set.add("unicorn");
+    set.remove("unicorn");
+
+    if(set.contains("unicorn"))
+    {
+        cout << "Unicorns, hooray!" << endl;
+    }
+    else
+    {
+        cout << "Oh no. :( All the unicorns are gone. :(" << endl;
+    }
+    
     return 0;
 }
