@@ -46,6 +46,18 @@ int main()
     {
         cout << "Oh no. :( All the unicorns are gone. :(" << endl;
     }
-    
+
     return 0;
 }
+
+/*
+
+Key Set Operations & Operators
+
+add(value)	    adds a value to a set, ignoring it if the set already contains the value
+contains(value)	returns true if the set contains the value, false otherwise
+remove(value)	removes the value from the set; does nothing if the value is not in the set
+size()	        returns the number of elements in the set
+isEmpty()	    returns true if the set is empty, false otherwise
+
+*/
