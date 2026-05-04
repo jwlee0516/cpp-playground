@@ -51,7 +51,6 @@ int main()
 }
 
 /*
-
 Key Set Operations & Operators
 
 add(value)	    adds a value to a set, ignoring it if the set already contains the value
@@ -60,4 +59,8 @@ remove(value)	removes the value from the set; does nothing if the value is not i
 size()	        returns the number of elements in the set
 isEmpty()	    returns true if the set is empty, false otherwise
 
+set1 - set2     returns a set difference
+set1 * set2     returns the intersection of two sets
+set1 + set2     returns the union of two sets
+set += value    adds an element to a set. 
 */
