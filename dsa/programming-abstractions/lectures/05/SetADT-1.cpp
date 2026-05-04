@@ -30,5 +30,8 @@ int main()
     cout << set << endl;
     cout << "Set size: " << set.size() << endl;
 
+    set.add("dragon");
+    set.remove("hummingbird");
+
     return 0;
 }
